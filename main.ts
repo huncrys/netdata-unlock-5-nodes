@@ -1,13 +1,16 @@
 import { Hono } from "hono";
-import "jsr:@std/dotenv/load";
+
+const baseUrl = Deno.env.get("NETDATA_BASE_URL");
+if (baseUrl === undefined) {
+  console.error("NETDATA_BASE_URL is not set");
+  Deno.exit(1);
+}
 
 const app = new Hono();
 
 app.get("/api/v3/settings", async (c) => {
   const registeredNodes = await fetch(
-    `${
-      Deno.env.get("NETDATA_BASE_URL") || "http://localhost:19999"
-    }/api/v1/registry?action=hello`,
+    `${baseUrl}/api/v1/registry?action=hello`,
     {
       headers: {
         ...c.req.header(),
@@ -15,9 +18,7 @@ app.get("/api/v3/settings", async (c) => {
     },
   );
   const originalBody = await fetch(
-    `${
-      Deno.env.get("NETDATA_BASE_URL") || "http://localhost:19999"
-    }/api/v3/settings?file=default`,
+    `${baseUrl}/api/v3/settings?file=default`,
     {
       headers: {
         ...c.req.header(),
@@ -35,9 +36,7 @@ app.get("/api/v3/settings", async (c) => {
 
 app.get("*", async (c) => {
   const res = await fetch(
-    `${
-      Deno.env.get("NETDATA_BASE_URL") || "http://localhost:19999"
-    }${c.req.path}${URL.parse(c.req.url)?.search}`,
+    `${baseUrl}${c.req.path}${URL.parse(c.req.url)?.search}`,
     {
       headers: {
         ...c.req.header(),

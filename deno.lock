@@ -1,20 +1,32 @@
 {
-  "version": "4",
+  "version": "5",
   "specifiers": {
-    "jsr:@hono/hono@^4.6.5": "4.6.13",
-    "jsr:@std/dotenv@*": "0.225.3"
+    "jsr:@hono/hono@^4.10.7": "4.10.7",
+    "jsr:@std/dotenv@*": "0.225.3",
+    "npm:@types/node@*": "24.0.4"
   },
   "jsr": {
-    "@hono/hono@4.6.13": {
-      "integrity": "198970fc6facf71a88ee57aa1ed32143b56bcb0f842fa965ca3ee7d6fdd21a8e"
+    "@hono/hono@4.10.7": {
+      "integrity": "b60512559d554f20a945e07a6c5f115e57cbd4c024da9217833c8e7b2c90355d"
     },
     "@std/dotenv@0.225.3": {
       "integrity": "a95e5b812c27b0854c52acbae215856d9cce9d4bbf774d938c51d212711e8d4a"
     }
   },
+  "npm": {
+    "@types/node@24.0.4": {
+      "integrity": "sha512-ulyqAkrhnuNq9pB76DRBTkcS6YsmDALy6Ua63V8OhrOBgbcYt6IOdzpw5P1+dyRIyMerzLkeYWBeOXPpA9GMAA==",
+      "dependencies": [
+        "undici-types"
+      ]
+    },
+    "undici-types@7.8.0": {
+      "integrity": "sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw=="
+    }
+  },
   "workspace": {
     "dependencies": [
-      "jsr:@hono/hono@^4.6.5"
+      "jsr:@hono/hono@^4.10.7"
     ]
   }
 }
