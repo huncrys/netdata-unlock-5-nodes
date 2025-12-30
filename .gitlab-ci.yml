@@ -3,8 +3,8 @@ variables:
   CI_GHCR_IMAGE: huncrys/netdata-unlock-5-nodes
 
 include:
-  - component: $CI_SERVER_FQDN/oaklab/ci-templates/hadolint@10
-  - component: $CI_SERVER_FQDN/oaklab/ci-templates/oci-publish@10
+  - component: $CI_SERVER_FQDN/oaklab/ci-templates/hadolint@11
+  - component: $CI_SERVER_FQDN/oaklab/ci-templates/oci-publish@11
     inputs:
       licenses: MIT
       platforms:
